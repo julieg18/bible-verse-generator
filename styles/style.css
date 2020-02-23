@@ -1,0 +1,16 @@
+.page {
+  background-color: #247ba0;
+  text-align: center;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.page__title {
+  font-family: 'Sriracha', cursive;
+}
+
+@media (max-width: 500px) {
+  .page__sub-title {
+    width: 90%;
+  }
+}

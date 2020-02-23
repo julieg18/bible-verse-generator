@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans|Sriracha&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Bible Verse Generator</title>
+  </head>
+  <body class="page">
+    <h1 class="page__title">Bible Verse Generator</h1>
+    <p class="page__sub-title">
+      Choose an emotion and generate bible verses based on that emotion.
+    </p>
+    <div class="dropdown">
+      <div class="dropdown__search">
+        <input
+          placeholder="Search for emotions..."
+          type="search"
+          class="dropdown__input-box"
+        />
+        <button class="dropdown__button">
+          <i class="dropdown__icon fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <ul class="dropdown__list">
+        <li>
+          <a class="dropdown__item" href="html/verses.html?emotion=anger"
+            >Anger</a
+          >
+        </li>
+        <li>
+          <a class="dropdown__item" href="html/verses.html?emotion=boredom"
+            >Boredom</a
+          >
+        </li>
+        <li>
+          <a class="dropdown__item" href="html/verses.html?emotion=contentment"
+            >Contentment</a
+          >
+        </li>
+        <li>
+          <a class="dropdown__item" href="html/verses.html?emotion=depression"
+            >Depression</a
+          >
+        </li>
+        <li>
+          <a class="dropdown__item" href="html/verses.html?emotion=excitement"
+            >Excitement</a
+          >
+        </li>
+        <li>
+          <a class="dropdown__item" href="html/verses.html?emotion=fear"
+            >Fear</a
+          >
+        </li>
+        <li>
+          <a class="dropdown__item" href="html/verses.html?emotion=foolishness"
+            >Foolishness</a
+          >
+        </li>
+        <li>
+          <a class="dropdown__item" href="html/verses.html?emotion=happiness"
+            >Happiness</a
+          >
+        </li>
+        <li>
+          <a class="dropdown__item" href="html/verses.html?emotion=jealousy"
+            >Jealousy</a
+          >
+        </li>
+        <li>
+          <a class="dropdown__item" href="html/verses.html?emotion=peacefulness"
+            >Peacefulness</a
+          >
+        </li>
+        <li>
+          <a class="dropdown__item" href="html/verses.html?emotion=saddness"
+            >Sadness</a
+          >
+        </li>
+      </ul>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/2bde3e0a3b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>

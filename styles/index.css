@@ -1,0 +1,119 @@
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: auto;
+  position: relative;
+}
+
+.dropdown__search {
+  display: flex;
+  width: 100%;
+  margin: auto;
+}
+
+.dropdown__button {
+  color: white;
+  background-color: #70c1b3;
+  border: none;
+  padding: 10px;
+  border-radius: 0 10px 10px 0;
+  transition: box-shadow 0.15s ease-in-out;
+  outline: none;
+}
+
+.dropdown__icon {
+  transition: transform 0.5s ease-in-out;
+}
+
+.dropdown__icon_rotate {
+  transform: rotate(180deg);
+}
+
+.dropdown__button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 1px #70c1b3;
+}
+
+.dropdown__input-box {
+  height: 40px;
+  width: 100%;
+  line-height: 100%;
+  font-size: 100%;
+  border-radius: 10px 0 0 10px;
+  padding-left: 10px;
+  border: none;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.dropdown__input-box:focus {
+  outline: none;
+  box-shadow: 0px 0px 1.5px 2.5px #70c1b3;
+}
+
+.dropdown__list {
+  max-height: 200px;
+  width: 100%;
+  border-radius: 10px;
+  margin: 5px 0;
+  padding: 0;
+  color: #000;
+  background-color: #fff;
+  overflow-y: auto;
+  text-align: left;
+  list-style-type: none;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  transform: translateY(-45px);
+  transition: transform 0.4s, visiblity 0.4s, opacity 0.4s, z-index 0.4s;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown__list::-webkit-scrollbar {
+  width: 15px;
+}
+
+.dropdown__list::-webkit-scrollbar-thumb {
+  background-color: #c9c9c9;
+  border-radius: 10px;
+  border: 3px solid #fff;
+}
+
+.dropdown__list_show {
+  visibility: visible;
+  top: 100%;
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0%);
+}
+
+.dropdown__item {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 10px 0 10px 10px;
+  margin: 0;
+  color: black;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.dropdown__item:hover {
+  background-color: #70c1b3;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .dropdown {
+    width: 90%;
+  }
+
+  .dropdown__list {
+    overflow-y: auto;
+  }
+}
