@@ -1,3 +1,7 @@
+import 'normalize.css/normalize.css';
+import '../styles/style.css';
+import '../styles/index.css';
+
 const dropdownInputBox = document.querySelector('.dropdown__input-box');
 const dropdownButton = document.querySelector('.dropdown__button');
 const dropdownIcon = document.querySelector('.dropdown__icon');

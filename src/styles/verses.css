@@ -1,0 +1,140 @@
+.page__verses {
+  margin: 0 auto;
+  padding: 0;
+  width: 60%;
+  list-style: none;
+}
+
+.verse {
+  background-color: #fff;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin-bottom: 10px;
+}
+
+.loading-animation {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-animation__dot {
+  width: 10px;
+  height: 10px;
+  background-color: #70c1b3;
+  display: inline-block;
+  margin: 0px 2px;
+  border-radius: 50%;
+  animation-timing-function: linear;
+  animation-duration: 1.75s;
+  animation-iteration-count: infinite;
+}
+
+.loading-animation__dot_num_1 {
+  animation-name: bounce-1;
+}
+
+.loading-animation__dot_num_2 {
+  animation-name: bounce-2;
+}
+
+.loading-animation__dot_num_3 {
+  animation-name: bounce-3;
+}
+
+@keyframes bounce-1 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  30% {
+    transform: translateY(0px);
+  }
+
+  55% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes bounce-2 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  40% {
+    transform: translateY(0px);
+  }
+
+  70% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes bounce-3 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  60% {
+    transform: translateY(0px);
+  }
+
+  80% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.verse__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.verse__reference {
+  margin: 0;
+}
+
+.verse__copy-button {
+  padding: 5px;
+  border: none;
+  background-color: #70c1b3;
+  color: #fff;
+  border-radius: 5px;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.verse__copy-button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 2px #70c1b3;
+}
+
+.verse__copy-button:focus {
+  outline: none;
+}
+
+.verse__passage {
+  margin: 0;
+  padding-top: 10px;
+  text-align: left;
+}
+
+@media (max-width: 500px) {
+  .page__verses {
+    width: 90%;
+  }
+}
