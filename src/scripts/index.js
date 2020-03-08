@@ -1,3 +1,4 @@
+import verseReferences from './verseReferences';
 import 'normalize.css/normalize.css';
 import '../styles/style.css';
 import '../styles/index.css';
@@ -6,7 +7,28 @@ const dropdownInputBox = document.querySelector('.dropdown__input-box');
 const dropdownButton = document.querySelector('.dropdown__button');
 const dropdownIcon = document.querySelector('.dropdown__icon');
 const dropdownList = document.querySelector('.dropdown__list');
-const dropdownItems = document.querySelectorAll('.dropdown__item');
+
+function addDropdownListItem(emotion) {
+  const listElement = document.createElement('li');
+  const listLink = document.createElement('a');
+  listLink.className = 'dropdown__item';
+  listLink.setAttribute('href', `/verses.html?emotion=${emotion}`);
+  listLink.innerText = emotion[0].toUpperCase() + emotion.slice(1);
+  listElement.appendChild(listLink);
+  dropdownList.appendChild(listElement);
+}
+
+function goToHref(e) {
+  window.location.href = e.target.getAttribute('href');
+}
+
+function addEventListenersToDropdownItems() {
+  const dropdownItems = document.querySelectorAll('.dropdown__item');
+  dropdownItems.forEach((dropdownItem) => {
+    dropdownItem.addEventListener('mousedown', goToHref);
+    return dropdownItem;
+  });
+}
 
 function showDropdownList() {
   dropdownList.classList.add('dropdown__list_show');
@@ -39,15 +61,10 @@ function filterDropdownList(e) {
   }
 }
 
-function goToHref(e) {
-  window.location.href = e.target.getAttribute('href');
-}
+Object.keys(verseReferences).forEach((emotion) => addDropdownListItem(emotion));
+addEventListenersToDropdownItems();
 
 dropdownButton.addEventListener('click', toggleDropdownList);
 dropdownInputBox.addEventListener('focus', showDropdownList);
 dropdownInputBox.addEventListener('focusout', hideDropdownList);
 dropdownInputBox.addEventListener('keyup', filterDropdownList);
-dropdownItems.forEach((dropdownItem) => {
-  dropdownItem.addEventListener('mousedown', goToHref);
-  return dropdownItem;
-});
