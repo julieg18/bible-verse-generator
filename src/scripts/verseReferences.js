@@ -146,7 +146,7 @@ export default {
   ],
   happy: [
     'PSA.144.15',
-    'PSA.16.18-PSA.16.19',
+    'PSA.16.8-PSA.16.9',
     'ECC.2.26',
     'PRO.10.28',
     'PSA.37.4',
