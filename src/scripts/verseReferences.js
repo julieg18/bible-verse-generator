@@ -117,7 +117,7 @@ export default {
   ],
   excited: [
     '1PE.1.3-1PE.1.4',
-    'PSA 20:4',
+    'PSA.20.4',
     'JER.29.11',
     'PRO.16.3',
     '3JN.1.2',
