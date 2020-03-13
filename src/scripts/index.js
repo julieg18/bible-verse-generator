@@ -3,8 +3,8 @@ import 'normalize.css/normalize.css';
 import '../styles/style.css';
 import '../styles/index.css';
 
+const dropdownSearch = document.querySelector('.dropdown__search');
 const dropdownInputBox = document.querySelector('.dropdown__input-box');
-const dropdownButton = document.querySelector('.dropdown__button');
 const dropdownIcon = document.querySelector('.dropdown__icon');
 const dropdownList = document.querySelector('.dropdown__list');
 
@@ -40,9 +40,8 @@ function hideDropdownList() {
   dropdownIcon.classList.remove('dropdown__icon_rotate');
 }
 
-function toggleDropdownList() {
-  dropdownList.classList.toggle('dropdown__list_show');
-  dropdownIcon.classList.toggle('dropdown__icon_rotate');
+function toggleFocusStylesToDropdownSearch() {
+  dropdownSearch.classList.toggle('dropdown__search_focus');
 }
 
 function filterDropdownList(e) {
@@ -64,7 +63,12 @@ function filterDropdownList(e) {
 Object.keys(verseReferences).forEach((emotion) => addDropdownListItem(emotion));
 addEventListenersToDropdownItems();
 
-dropdownButton.addEventListener('click', toggleDropdownList);
-dropdownInputBox.addEventListener('focus', showDropdownList);
-dropdownInputBox.addEventListener('focusout', hideDropdownList);
+dropdownInputBox.addEventListener('focus', () => {
+  toggleFocusStylesToDropdownSearch();
+  showDropdownList();
+});
+dropdownInputBox.addEventListener('blur', () => {
+  toggleFocusStylesToDropdownSearch();
+  hideDropdownList();
+});
 dropdownInputBox.addEventListener('keyup', filterDropdownList);
