@@ -19,7 +19,7 @@ function addDropdownListItem(emotion) {
 }
 
 function goToHref(e) {
-  window.location.href = e.target.getAttribute('href');
+  window.location.href += e.target.getAttribute('href');
 }
 
 function addEventListenersToDropdownItems() {
