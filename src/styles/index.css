@@ -105,6 +105,14 @@
   cursor: pointer;
 }
 
+.github-link {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  font-size: 1.75rem;
+}
+
 @media (max-width: 500px) {
   .dropdown {
     width: 90%;
