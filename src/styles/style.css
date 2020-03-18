@@ -12,5 +12,6 @@
 @media (max-width: 500px) {
   .page__sub-title {
     width: 90%;
+    margin: 1rem auto;
   }
 }
