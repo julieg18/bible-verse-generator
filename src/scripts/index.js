@@ -12,7 +12,7 @@ function addDropdownListItem(emotion) {
   const listElement = document.createElement('li');
   const listLink = document.createElement('a');
   listLink.className = 'dropdown__item';
-  listLink.setAttribute('href', `/verses.html?emotion=${emotion}`);
+  listLink.setAttribute('href', `verses.html?emotion=${emotion}`);
   listLink.innerText = emotion[0].toUpperCase() + emotion.slice(1);
   listElement.appendChild(listLink);
   dropdownList.appendChild(listElement);
