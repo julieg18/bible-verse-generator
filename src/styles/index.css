@@ -18,7 +18,10 @@
   box-shadow: 0px 0px 1.5px 2.5px #70c1b3;
 }
 
-.dropdown__input-box {
+.dropdown__input-box[type='search'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   height: 40px;
   width: 100%;
   line-height: 100%;
