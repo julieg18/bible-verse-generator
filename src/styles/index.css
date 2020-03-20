@@ -24,10 +24,9 @@
   appearance: none;
   height: 40px;
   width: 100%;
-  line-height: 100%;
-  font-size: 100%;
   padding-left: 10px;
   border: none;
+  line-height: 40px;
   border-radius: 10px 0 0 10px;
 }
 
