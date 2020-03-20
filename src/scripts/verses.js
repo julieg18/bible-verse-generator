@@ -45,7 +45,7 @@ async function getVerse(verseRef) {
 }
 
 function changeCopyButtonsText(copyButtonId) {
-  const copyButtons = document.querySelectorAll('.verse__copy-button');
+  const copyButtons = document.querySelectorAll('.verse__button_type_copy');
   const lastClickedCopyButton = document.querySelector(`.${copyButtonId}`);
 
   copyButtons.forEach((button) => {
@@ -81,23 +81,34 @@ function copyVerseToClipboard(e) {
 }
 
 function createVerse(verseIdNum, verseRef, verseContent) {
+  const verseBook = verseRef.split(' ')[0];
+  const verseChapter = verseRef.split(' ')[1].split(':')[0];
+  const verseHref = `https://www.biblestudytools.com/ceb/${verseBook}/${verseChapter}.html`;
+
   const verseHeader = document.createElement('div');
   const versePassage = document.createElement('div');
   const verseReference = document.createElement('p');
   const verseCopyBtn = document.createElement('button');
+  const verseBibleLink = document.createElement('a');
 
   verseHeader.className = 'verse__header';
   versePassage.className = 'verse__passage';
   verseReference.className = 'verse__reference';
-  verseCopyBtn.className = `verse__copy-button verse__copy-button_id_${verseIdNum}`;
+  verseCopyBtn.className = `verse__button verse__button_id_${verseIdNum} verse__button_type_copy`;
+  verseBibleLink.className = 'verse__button verse__button_type_link';
 
   verseReference.innerHTML = verseRef;
   verseCopyBtn.innerHTML = 'Copy';
   versePassage.innerHTML = verseContent;
+  verseBibleLink.innerHTML = 'Go to Chapter';
+
+  verseBibleLink.setAttribute('href', verseHref);
+  verseBibleLink.setAttribute('target', '_blank');
 
   verseCopyBtn.addEventListener('click', copyVerseToClipboard);
 
   verseHeader.appendChild(verseReference);
+  verseHeader.appendChild(verseBibleLink);
   verseHeader.appendChild(verseCopyBtn);
 
   return { verseHeader, versePassage };

@@ -101,15 +101,16 @@
 
 .verse__header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: stretch;
 }
 
 .verse__reference {
-  margin: 0;
+  margin: 0 auto 0 0;
+  align-self: center;
 }
 
-.verse__copy-button {
+.verse__button {
   padding: 5px;
   border: none;
   background-color: #70c1b3;
@@ -118,13 +119,18 @@
   transition: box-shadow 0.15s ease-in-out;
 }
 
-.verse__copy-button:hover {
+.verse__button:hover {
   cursor: pointer;
   box-shadow: 0px 0px 0px 2px #70c1b3;
 }
 
-.verse__copy-button:focus {
+.verse__button:focus {
   outline: none;
+}
+
+.verse__button_type_link {
+  text-decoration: none;
+  margin-right: 10px;
 }
 
 .verse__passage {
