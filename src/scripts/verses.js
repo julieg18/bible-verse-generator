@@ -44,26 +44,36 @@ async function getVerse(verseRef) {
   return { reference, content };
 }
 
-function changeCopyButtonsText(copyButtonId) {
-  const copyButtons = document.querySelectorAll('.verse__button_type_copy');
-  const lastClickedCopyButton = document.querySelector(`.${copyButtonId}`);
+function changeCopyButtonTooltipsText(copyButtonId) {
+  const copyButtonTooltips = document.querySelectorAll(
+    '.verse__button-tooltip',
+  );
+  const lastClickedCopyButtonTooltip = document
+    .querySelector(`.${copyButtonId}`)
+    .querySelector('span');
 
-  copyButtons.forEach((button) => {
-    if (button !== lastClickedCopyButton) {
-      button.innerHTML = 'Copy';
+  copyButtonTooltips.forEach((tooltip) => {
+    if (tooltip !== lastClickedCopyButtonTooltip) {
+      tooltip.innerHTML = 'Copy';
+      tooltip.classList.remove('verse__button-tooltip_clicked');
     }
   });
-  lastClickedCopyButton.innerHTML = 'Copied!';
+  lastClickedCopyButtonTooltip.innerHTML = 'Copied!';
+  lastClickedCopyButtonTooltip.classList.add('verse__button-tooltip_clicked');
 }
 
 function copyVerseToClipboard(e) {
-  const verseReference = e.srcElement.parentNode.querySelector(
+  const copyButton =
+    e.srcElement.classList[0] === 'far'
+      ? e.srcElement.parentNode
+      : e.srcElement;
+  const verseReference = copyButton.parentNode.querySelector(
     '.verse__reference',
   ).innerText;
-  const versePassage = e.srcElement.parentNode.parentNode.querySelector(
+  const versePassage = copyButton.parentNode.parentNode.querySelector(
     '.verse__passage',
   ).innerText;
-  const copyButtonId = e.srcElement.classList[1];
+  const copyButtonId = copyButton.classList[1];
   const verse = `${versePassage} - ${verseReference}`;
 
   const textArea = document.createElement('textarea');
@@ -77,7 +87,7 @@ function copyVerseToClipboard(e) {
   document.execCommand('copy');
   document.body.removeChild(textArea);
 
-  changeCopyButtonsText(copyButtonId);
+  changeCopyButtonTooltipsText(copyButtonId);
 }
 
 function createVerse(verseIdNum, verseRef, verseContent) {
@@ -90,23 +100,29 @@ function createVerse(verseIdNum, verseRef, verseContent) {
   const verseReference = document.createElement('p');
   const verseCopyBtn = document.createElement('button');
   const verseBibleLink = document.createElement('a');
+  const copyIcon = document.createElement('i');
+  const copyButtonTooltip = document.createElement('span');
 
   verseHeader.className = 'verse__header';
   versePassage.className = 'verse__passage';
   verseReference.className = 'verse__reference';
   verseCopyBtn.className = `verse__button verse__button_id_${verseIdNum} verse__button_type_copy`;
   verseBibleLink.className = 'verse__button verse__button_type_link';
+  copyIcon.className = 'far fa-copy';
+  copyButtonTooltip.className = 'verse__button-tooltip';
 
   verseReference.innerHTML = verseRef;
-  verseCopyBtn.innerHTML = 'Copy';
   versePassage.innerHTML = verseContent;
   verseBibleLink.innerHTML = 'Go to Chapter';
+  copyButtonTooltip.innerHTML = 'Copy';
 
   verseBibleLink.setAttribute('href', verseHref);
   verseBibleLink.setAttribute('target', '_blank');
 
   verseCopyBtn.addEventListener('click', copyVerseToClipboard);
 
+  verseCopyBtn.appendChild(copyButtonTooltip);
+  verseCopyBtn.appendChild(copyIcon);
   verseHeader.appendChild(verseReference);
   verseHeader.appendChild(verseBibleLink);
   verseHeader.appendChild(verseCopyBtn);

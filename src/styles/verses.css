@@ -111,6 +111,7 @@
 }
 
 .verse__button {
+  position: relative;
   padding: 5px;
   border: none;
   background-color: #70c1b3;
@@ -131,6 +132,39 @@
 .verse__button_type_link {
   text-decoration: none;
   margin-right: 10px;
+}
+
+.verse__button-tooltip {
+  position: absolute;
+  bottom: 125%;
+  left: -35%;
+  background-color: #808080;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.verse__button-tooltip_clicked {
+  left: -70%;
+}
+
+.verse__button-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #808080 transparent transparent transparent;
+}
+
+.verse__button_type_copy:hover .verse__button-tooltip {
+  visibility: visible;
+  opacity: 1;
 }
 
 .verse__passage {
